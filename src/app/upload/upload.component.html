@@ -1,0 +1,25 @@
+
+<h1>Angular Excel Export & Import Example</h1>
+ 
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Color</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.brand}}</td>
+      <td>{{item.color}}</td>
+      <td>{{item.price}}</td>
+    </tr>
+  </tbody>
+</table>
+ 
+<button type="button" class="btn btn-primary" (click)="exportExcel()">Export</button>
