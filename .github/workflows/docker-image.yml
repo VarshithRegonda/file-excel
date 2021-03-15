@@ -1,18 +1,13 @@
-name: Docker Image CI
+#basic image
+FROM node 
+# set working directory
+RUN mkdir /Users/user/Desktop/file-uploder/file-uplod/src/app
+# copy all times from current directory to docker
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
-jobs:
+# install and cache dependencies
+RUN yarn 
 
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+# start app
+CMD ["npm","start"]
